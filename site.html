@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+  $(document).ready(function() {
+   var orgList = [
+   "aba",
+   "zaba",
+   "waba",
+   "fraba",
+   "naba",
+   "daba",
+   "gaba",
+   "saba",
+   "raba"
+   ]
+   orgList = shuffle(orgList);
+   $.each( orgList, function(key, value){
+     var liEntry = '<li>' + value + '</li>'
+     $("#org-list").append(liEntry)
+   });
+
+   
+  });
+
+  function shuffle(array){
+   for (var i = array.length 1; i > 0; i-) {
+     var j = Math.floor(Math.random() * (i + 1));
+     var temp = array[i];
+     array[i] = array[j];
+     array[j] = temp;
+   }
+   return array;
+  };
+</script>
+<body>
+  <dov id="entries">
+  </div>
+  <div id="pages">
+  </div>
+</body>
+</html>

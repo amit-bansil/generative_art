@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		* { margin: 0; padding: 0; overflow:hidden;}
+		body, html { height:100%; }
+		canvas{
+			background-color:black;
+		}
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+	<script>
+		var canvas  = document.getElementsByTagName("canvas")[0],
+		    context = canvas.getContext("2d");
+		var width   = window.innerWidth,
+		    height  = window.innerHeight,
+		    x       = 0,
+		    y       = 50,
+		    i       = 0;
+		
+		canvas.width = width;
+		canvas.height = height;
+
+		context.fillStyle = "#000000";
+		context.fillRect(0,0,width,height);
+
+		context.font = "bold 9pt monospace";
+
+		chars = document.documentElement.innerHTML;
+		chars = chars.replace(/\s+/g,' ');
+
+		while(y < height - 62){
+			x = 50;
+			while(x < width - 58){
+				context.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+				context.fillText(chars[i++ % chars.length], x, y);
+				x += 7;
+			}
+			y += 10;
+		}
+	</script>
+</body>
+</html>
